@@ -19,7 +19,7 @@ class _SignupState extends State<Signup> {
         ),
         body: PageView(
           controller: PageController(initialPage: 0),
-          children: [page1(), page2(), page3()],
+          children: [Page1(), Page2(), Page3()],
         ));
   }
 }
