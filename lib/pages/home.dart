@@ -40,9 +40,10 @@ class _HomeState extends State<Home> {
                     height: 20,
                   ),
                   Text(
-                    "Your new Personal\nself-care companion",
+                    "I'll help you finish your daily tasks",
                     style: TextStyle(
                       color: Color.fromRGBO(203, 199, 255, 1),
+                      height: 1.4,
                       fontWeight: FontWeight.bold,
                       fontSize: 20.0,
                       letterSpacing: 2.0,
