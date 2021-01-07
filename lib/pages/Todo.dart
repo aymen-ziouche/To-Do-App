@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/pages/taskpage.dart';
 import 'package:my_app/widget.dart';
 
 class Todo extends StatefulWidget {
@@ -42,19 +43,22 @@ class _TodoState extends State<Todo> {
                         ),
                       )),
                   Expanded(
-                      child: ListView(
-                    children: [
-                      TaskCardWidget(
-                        title: "Get Started",
-                        desc: "just a description",
-                      ),
-                      TaskCardWidget(),
-                      TaskCardWidget(),
-                      TaskCardWidget(),
-                      TaskCardWidget(),
-                      TaskCardWidget(),
-                      TaskCardWidget(),
-                    ],
+                      child: ScrollConfiguration(
+                    behavior: NoGlowBehaviour(),
+                    child: ListView(
+                      children: [
+                        TaskCardWidget(
+                          title: "Get Started",
+                          desc: "just a description",
+                        ),
+                        TaskCardWidget(),
+                        TaskCardWidget(),
+                        TaskCardWidget(),
+                        TaskCardWidget(),
+                        TaskCardWidget(),
+                        TaskCardWidget(),
+                      ],
+                    ),
                   )),
                 ],
               ),
@@ -64,7 +68,8 @@ class _TodoState extends State<Todo> {
                 child: Center(
                   child: FlatButton(
                     onPressed: () {
-                      Navigator.pushNamed(context, '/taskpage');
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => Taskpage()));
                     },
                     color: Color.fromRGBO(131, 117, 226, 1),
                     padding: EdgeInsets.fromLTRB(20, 20, 20, 20),

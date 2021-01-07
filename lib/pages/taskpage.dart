@@ -48,7 +48,7 @@ class _TaskpageState extends State<Taskpage> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(bottom: 12.0),
+                    padding: const EdgeInsets.only(bottom: 12.0, left: 10.0),
                     child: TextField(
                       decoration: InputDecoration(
                           hintText: "Enter Description for the task..",
@@ -56,7 +56,11 @@ class _TaskpageState extends State<Taskpage> {
                           contentPadding: EdgeInsets.symmetric(vertical: 24.0)),
                     ),
                   ),
-                  ToDoWidget(),
+                  ToDoWidget(
+                    isDone: true,
+                    text: "hellooo",
+                  ),
+                  TodoWidget(isDone: false)
                 ],
               ),
               Positioned(
