@@ -44,3 +44,42 @@ class TaskCardWidget extends StatelessWidget {
     );
   }
 }
+
+class ToDoWidget extends StatelessWidget {
+  final String text;
+  final bool isDone;
+
+  ToDoWidget({this.text, @required this.isDone});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.symmetric(vertical: 24.0, horizontal: 8.0),
+      child: Row(
+        children: [
+          Container(
+            width: 20.0,
+            height: 20.0,
+            margin: EdgeInsets.only(right: 12.0),
+            decoration: BoxDecoration(
+                color: isDone ? Colors.blue : Colors.transparent,
+                borderRadius: BorderRadius.circular(6.0),
+                border: isDone
+                    ? null
+                    : Border.all(color: Color(0xFF86829D), width: 1.5)),
+            child: Image(image: AssetImage("assets/check_icon.png")),
+          ),
+          Text(
+            text ?? "(Unnamed Todo)",
+            style: TextStyle(
+              color:
+                  isDone ? Color.fromRGBO(203, 199, 255, 1) : Color(0xFF86829D),
+              fontSize: 16.0,
+              fontWeight: isDone ? FontWeight.bold : FontWeight.w500,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}

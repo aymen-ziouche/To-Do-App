@@ -10,80 +10,89 @@ class _TodoState extends State<Todo> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
         backgroundColor: Color.fromRGBO(131, 117, 226, 1),
-        appBar: AppBar(
-          backgroundColor: Colors.transparent,
-          elevation: 0,
-        ),
-        body: Stack(
-          children: [
-            Padding(
-                padding: const EdgeInsets.fromLTRB(20.0, 5.0, 20.0, 50),
-                child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Center(
-                        child: Column(
-                          children: [
-                            Text(
-                              "TO DO!",
-                              style: TextStyle(
-                                color: Color.fromRGBO(120, 124, 213, 1),
-                                fontWeight: FontWeight.bold,
-                                fontSize: 50.0,
-                                letterSpacing: 2.0,
-                              ),
-                              textAlign: TextAlign.center,
-                            ),
-                            SizedBox(height: 20),
-                            // The Cards
-                            TaskCardWidget(
-                              title: "Get Started!",
-                              desc: "A description",
-                            ),
-                            TaskCardWidget(),
-                            TaskCardWidget(),
-                          ],
+        elevation: 0,
+      ),
+      body: SafeArea(
+        child: Container(
+          width: double.infinity,
+          padding: EdgeInsets.symmetric(horizontal: 24.0),
+          color: Color.fromRGBO(131, 117, 226, 1),
+          child: Stack(
+            alignment: Alignment.bottomCenter,
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                      margin: EdgeInsets.only(
+                        top: 32.0,
+                        bottom: 32.0,
+                      ),
+                      child: Center(
+                        child: Text(
+                          'To Do',
+                          style: TextStyle(
+                            color: Color.fromRGBO(120, 124, 213, 1),
+                            fontWeight: FontWeight.bold,
+                            fontSize: 50.0,
+                            letterSpacing: 2.0,
+                          ),
                         ),
+                      )),
+                  Expanded(
+                      child: ListView(
+                    children: [
+                      TaskCardWidget(
+                        title: "Get Started",
+                        desc: "just a description",
                       ),
-                      Spacer(
-                        flex: 1,
+                      TaskCardWidget(),
+                      TaskCardWidget(),
+                      TaskCardWidget(),
+                      TaskCardWidget(),
+                      TaskCardWidget(),
+                      TaskCardWidget(),
+                    ],
+                  )),
+                ],
+              ),
+              Spacer(flex: 1),
+              Positioned(
+                bottom: 24.0,
+                child: Center(
+                  child: FlatButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/taskpage');
+                    },
+                    color: Color.fromRGBO(131, 117, 226, 1),
+                    padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(50.0),
+                    ),
+                    splashColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    child: Text(
+                      "Add!",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18.0,
+                        letterSpacing: 1.5,
                       ),
-                      Positioned(
-                        bottom: 10,
-                        left: 10,
-                        right: 10,
-                        child: Padding(
-                            padding: const EdgeInsets.only(
-                                left: 10, right: 10, bottom: 1),
-                            child: Center(
-                                child: Column(
-                              children: [
-                                FlatButton(
-                                  onPressed: () {},
-                                  color: Colors.white,
-                                  padding: EdgeInsets.fromLTRB(60, 20, 60, 20),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(40.0),
-                                  ),
-                                  splashColor: Colors.transparent,
-                                  highlightColor: Colors.transparent,
-                                  child: Text(
-                                    "To Do",
-                                    style: TextStyle(
-                                      color: Color.fromRGBO(131, 117, 226, 1),
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 18.0,
-                                      letterSpacing: 1.5,
-                                    ),
-                                    textAlign: TextAlign.center,
-                                  ),
-                                ),
-                              ],
-                            ))),
-                      )
-                    ])),
-          ],
-        ));
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                ),
+              )
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }
+
+
+// scafold => safearea => container => stack => column and postioned inside stack => listview and logo inside container => 
