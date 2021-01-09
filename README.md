@@ -1,6 +1,6 @@
-# my_app
+# To Do App
 
-A new Flutter project.
+A flutter to-do App
 
 ## Getting Started
 
